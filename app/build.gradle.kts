@@ -41,6 +41,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    useLibrary("org.apache.http.legacy")
     externalNativeBuild {
         ndkBuild {
             path = file("src/main/jni/Android.mk")
@@ -60,12 +61,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
-    implementation(
-        fileTree(
-            mapOf(
-                "dir" to "libs",
-                "include" to listOf("*.jar")
-            )
-        )
-    )
 }
